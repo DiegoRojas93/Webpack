@@ -1,14 +1,26 @@
 {
-  "name": "Curso_de_Webpack",
+  "name": "js-portfolio",
   "version": "1.0.0",
-  "description": "Este es el curso de Webpack de Platzi",
+  "description": "A minimal portfolio with Vanilla JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "Webpack, JavaScript, Sass, Css, etc"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Diego Fernando Rojas Quintero",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Diego Fernando Rojas withQuintero",
   "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
   "devDependencies": {
     "webpack": "5.65.0",
     "webpack-cli": "4.9.1"
