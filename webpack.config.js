@@ -22,14 +22,18 @@ module.exports = {
         }
       },
       {
-        test: /.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.css|.styl$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'stylus-loader'
+        ]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      inject: 'body',
+      inject: true,
       template: './public/index.html',
       filename: './index.html'
     }),
