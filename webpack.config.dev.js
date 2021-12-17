@@ -16,6 +16,7 @@ module.exports = {
     assetModuleFilename: "assets/images/[hash][ext][query]",
   },
   mode: "development",
+  devtool: 'source-map',
   devServer: {
     compress: true,
     historyApiFallback: true,
@@ -86,5 +87,5 @@ module.exports = {
       analyzerMode: 'server',
       openAnalyzer: true,
     })
-  ],
+  ]
 };
