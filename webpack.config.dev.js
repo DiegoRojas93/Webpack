@@ -5,7 +5,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   CopyPlugin = require("copy-webpack-plugin"),
-  Dotenv = require("dotenv-webpack");
+  Dotenv = require("dotenv-webpack"),
+  BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: `./src/index.js`,
@@ -19,7 +20,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     port: 3006,
-    open: true
+    open: true,
   },
   resolve: {
     extensions: [".js"],
@@ -81,5 +82,9 @@ module.exports = {
       ],
     }),
     new Dotenv(),
-  ]
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'server',
+      openAnalyzer: true,
+    })
+  ],
 };
