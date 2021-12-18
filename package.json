@@ -1,16 +1,15 @@
 {
-  "name": "Curso_de_Webpack",
-  "version": "1.0.0",
+  "name": "curso_de_webpack",
   "description": "",
-  "main": "index.js",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development"
   },
-  "keywords": [],
-  "author": "Diego Fernando Rojas Quintero",
-  "license": "MIT",
   "dependencies": {
     "@babel/runtime": "7.16.5",
+    "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
@@ -19,9 +18,13 @@
     "@babel/preset-env": "7.16.5",
     "@babel/preset-react": "7.16.5",
     "babel-loader": "8.2.3",
-    "react": "17.0.2",
+    "html-loader": "3.0.1",
+    "html-webpack-plugin": "5.5.0",
     "webpack": "5.65.0",
     "webpack-cli": "4.9.1",
     "webpack-dev-server": "4.6.0"
-  }
+  },
+  "keywords": [],
+  "author": "Diego Fernando Rojas Quintero",
+  "license": "MIT"
 }

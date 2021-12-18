@@ -1,15 +1,23 @@
 const path = require ('path');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bindle.js'
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  modules: {
+  devServer: {
+    compress: true,
+    historyApiFallback: true,
+    port: 3006,
+    open: true
+  },
+  module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -17,13 +25,20 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.html$/i,
+        use: [
+          { loader: 'html-loader'}
+        ]
       }
     ]
   },
-  devServer: {
-    compress: true,
-    historyApiFallback: true,
-    port: 3006,
-    open: true
-  }
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: './public/index.html',
+      filename: './index.html'
+    })
+  ]
 }

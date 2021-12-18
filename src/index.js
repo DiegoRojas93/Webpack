@@ -1,9 +1,9 @@
 //  ./src/index.js
 
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import App from "../src/components/App.jsx"
+import App from './components/App.jsx'
 
 const app = document.getElementById('app');
 
