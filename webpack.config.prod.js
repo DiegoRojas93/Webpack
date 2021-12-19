@@ -4,13 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'),
       MiniCssExtractPlugin = require('mini-css-extract-plugin'),
       CssMinimizerPlugin =  require('css-minimizer-webpack-plugin'),
       TerserPlugin  = require('terser-webpack-plugin'),
-      { CleanWebpackPlugin } = require('clean-webpack-plugin');
+      { CleanWebpackPlugin } = require('clean-webpack-plugin'),
+      svgToMiniDataURI = require('mini-svg-data-uri');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    assetModuleFilename: 'assets/images/[name].[hash].[ext]'
   },
   devServer: {
     compress: true,
@@ -40,6 +42,17 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.svg$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              generator: (content) => svgToMiniDataURI(content.toString()),
+            }
+          },
+        ]
       }
     ]
   },
@@ -48,7 +61,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@components': path.resolve(__dirname, 'src/components/'),
-      '@styles': path.resolve(__dirname, 'src/styles/')
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@images': path.resolve(__dirname, 'src/images/')
     }
   },
   plugins: [

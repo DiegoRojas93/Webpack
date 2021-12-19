@@ -2,6 +2,11 @@
 
 import React from 'react';
 
-const App = () => <h1>Hello React!</h1>
+import Logo from "@images/React-icon.svg"
+
+const App = () => <div>
+  <h1>Hello React!</h1>
+  <img src={Logo} alt="Icon" />
+</div>
 
 export default App;
