@@ -21,6 +21,19 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.html$/i,
+        use: [
+          { loader: 'html-loader' }
+        ]
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           "style-loader",
@@ -39,5 +52,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css'
     })
-  ]
+  ],
+  mode: 'development',
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@styles': path.resolve(__dirname, 'src/styles/')
+    }
+  }
 }
